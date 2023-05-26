@@ -10,7 +10,7 @@ import ServiceAdvisorResetPasswordPage from './components/ServiceAdvisorResetPas
 import AdminDashboardPage from './components/AdminDashboardPage';
 import CustomerDashboardPage from './components/CustomerDashboardPage';
 import ServiceAdvisorDashboardPage from './components/ServiceAdvisorDashboardPage';
-import WelcomePage from './components/WelcomePage';
+import AddBookingPage from './components/AddBookingPage';
 
 
 
@@ -29,6 +29,7 @@ function App() {
         <Route path="/customer/login" component={LoginPage} />
         <Route path="/customer/reset-password" component={ResetPasswordPage} />
         <Route path="/customer/dashboard" component={CustomerDashboardPage} />
+		<Route path="/customer/add-booking" component={AddBookingPage} />
         <Route path="/service-advisor/login" component={ServiceAdvisorLoginPage} />
         <Route path="/service-advisor/reset-password" component={ServiceAdvisorResetPasswordPage} />
         <Route path="/service-advisor/dashboard" component={ServiceAdvisorDashboardPage} />

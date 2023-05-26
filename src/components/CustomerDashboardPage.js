@@ -11,6 +11,8 @@ import viewservicepackages from '../assets/viewservicepackages.jpg';
 const CustomerDashboardPage = () => {
   const [bookings, setBookings] = useState([]);
   const [error, setError] = useState('');
+  
+  const [email, setEmail] = useState('');
 
  useEffect(() => {
     const fetchBookings = async () => {
@@ -22,13 +24,19 @@ const CustomerDashboardPage = () => {
           window.location.href = '/customer/login';
           return;
         }
+		
+		// Retrieve the logged-in customer's email from localStorage
+    const email = localStorage.getItem('email');
 
         // Set the JWT token in the request headers
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
         // User is authenticated, fetch bookings
-        const bookingsResponse = await axios.get('http://localhost:3001/api/customer/bookings');
-        setBookings(bookingsResponse.data);
+        const bookingsResponse = await axios.post('http://localhost:3001/api/customer/getbookings', {email});
+		console.log(bookingsResponse)
+        setBookings(bookingsResponse.data.bookings);
+		console.log(bookings)
+		console.log(bookings.bookings)
       } catch (error) {
         console.error(error);
         // Handle error
@@ -62,19 +70,22 @@ const CustomerDashboardPage = () => {
 	  // Remove the JWT token from local storage
     localStorage.removeItem('token');
 	
+	localStorage.removeItem('email');
+	
       window.location.href = '/customer/login';
     } catch (error) {
-      console.error(error);
+      console.error(error);	
       // Handle error
     }
   };
   
   
    const cancelBooking = async (bookingId) => {
+	   console.log(bookingId);
     try {
-      await axios.delete(`/api/customer/bookings/${bookingId}`);
+      await axios.delete(`http://localhost:3001/api/customer/bookings/${bookingId}`);
       // Booking canceled successfully, update the bookings list
-      setBookings((prevBookings) => prevBookings.filter((booking) => booking.id !== bookingId));
+      setBookings((prevBookings) => prevBookings.filter((booking) => booking._id !== bookingId));
     } catch (error) {
       console.error(error);
       // Handle error
@@ -118,29 +129,30 @@ const CustomerDashboardPage = () => {
       <h3>My Bookings</h3>
       {Array.isArray(bookings) ? (
         bookings.map((booking) => (
+		
           <div key={booking.id}>
-            <div className="booking-card" key={booking.id}>
+            <div className="booking-card" key={booking._id}>
             <div>
-              <strong>Booking ID:</strong> {booking.id}
+              <strong>Booking ID:</strong> {booking._id}
             </div>
-            <div>
-              <strong>Service:</strong> {booking.service}
-            </div>
+            
             <div>
               <strong>Date:</strong> {booking.date}
             </div>
             <div>
               <strong>Status:</strong> {booking.status}
             </div>
-            <button onClick={() => cancelBooking(booking.id)}>Cancel Booking</button>
+            <button onClick={() => cancelBooking(booking._id)}>Cancel Booking</button>
           </div>
           </div>
+		  
         ))
       ) : (
         <p>No bookings found.</p>
       )}
 	  
-	  
+	  <br/><br/>
+	  <br/>
 	
     </div>
   );
