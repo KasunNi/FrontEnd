@@ -1,0 +1,82 @@
+/* CustomerDashboardPage.css */
+
+.customer-dashboard {
+  padding: 20px;
+  background-color: white;
+}
+
+.navigation-tiles {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+
+.tile {
+  flex: 1;
+  background-color: #eaeaea;
+  padding: 20px;
+  margin-right: 10px;
+  text-align: center;
+  
+}
+
+.tile a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.tile img {
+  width: 100%; /* Adjust the size of the image as needed */
+  margin-bottom: 10px;
+}
+
+.tile {
+  flex: 1;
+  background-color: #eaeaea;
+  padding: 20px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.tile:nth-child(1) {
+  background-color: #007bff; /* Red */
+}
+
+.tile:nth-child(2) {
+  background-color: #17a2b8; /* Blue */
+}
+
+.tile:nth-child(3) {
+  background-color: #28a745; /* Green */
+}
+
+.booking-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.booking-card {
+  background-color: #eaeaea;
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+.booking-card button {
+  margin-top: 10px;
+}
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.logout-button {
+  padding: 10px 20px;
+  background-color: #ffc107;
+  border: none;
+  cursor: pointer;
+}
+
