@@ -11,6 +11,7 @@ import viewservicepackages from '../assets/viewservicepackages.jpg';
 const CustomerDashboardPage = () => {
   const [bookings, setBookings] = useState([]);
   const [error, setError] = useState('');
+  const [serviceAdvisors, setServiceAdvisors] = useState([]);
   
   const [email, setEmail] = useState('');
 
@@ -44,6 +45,7 @@ const CustomerDashboardPage = () => {
     };
 
     fetchBookings();
+	fetchServiceAdvisors();
   }, []);
   
    /*useEffect(() => {
@@ -92,6 +94,19 @@ const CustomerDashboardPage = () => {
     }
   };
 
+const getServiceAdvisorName = (serviceAdvisorId) => {
+    const serviceAdvisor = serviceAdvisors.find((advisor) => advisor._id === serviceAdvisorId);
+    return serviceAdvisor ? serviceAdvisor.name : 'N/A';
+  };
+  
+   const fetchServiceAdvisors = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/api/service-advisors');
+      setServiceAdvisors(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
 
   return (
@@ -138,6 +153,12 @@ const CustomerDashboardPage = () => {
             
             <div>
               <strong>Date:</strong> {booking.date}
+            </div>
+			<div>
+              <strong>Description:</strong> {booking.description}
+            </div>
+			<div>
+              <strong>Service Advisor:</strong> {getServiceAdvisorName(booking.serviceAdvisor)}
             </div>
             <div>
               <strong>Status:</strong> {booking.status}

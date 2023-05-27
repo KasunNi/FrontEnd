@@ -57,7 +57,7 @@
   grid-gap: 20px;
 }
 
-.booking-card {
+/*.booking-card {
   background-color: #eaeaea;
   padding: 20px;
   padding-bottom: 50px;
@@ -65,7 +65,42 @@
 
 .booking-card button {
   margin-top: 10px;
+}*/
+.booking-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  margin-bottom: 16px;
 }
+
+.booking-card h2 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.booking-card p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.booking-card .status {
+  font-weight: bold;
+}
+
+.booking-card .cancel-button {
+  background-color: #ff0000;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.booking-card .cancel-button:hover {
+  background-color: #cc0000;
+}
+
 
 .logout-container {
   display: flex;
