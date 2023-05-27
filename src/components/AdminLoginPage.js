@@ -34,6 +34,13 @@ const AdminLoginPage = () => {
 		  console.log(response);
         // Handle successful login
         localStorage.setItem('token', response.data.token); // Store the token in local storage
+		
+		// Retrieve the user email from the response
+      const email = response.data.email;
+
+      // Store the user ID in localStorage
+      localStorage.setItem('email', email);
+	  
         history.push('/admin/dashboard'); // Redirect to the customer dashboard page
       })
       .catch((error) => {
