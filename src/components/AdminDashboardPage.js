@@ -139,11 +139,11 @@ const getServiceAdvisorName = (serviceAdvisorId) => {
         </div>
         <div className="tile">
 		<img src={logo} alt="viewservicecenters" className="logo" /><br/>
-          <a href="/customer/view-service-centers">View Service Centers</a>
+          <a href="/admin/service-centers">View Service Centers</a>
         </div>
         <div className="tile">
 			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
-          <a href="/customer/view-service-packages">View Service Packages</a>
+          <a href="/admin/service-packages">View Service Packages</a>
         </div>
 		<div className="tile">
 		<img src={logo} alt="viewservicecenters" className="logo" /><br/>

@@ -90,7 +90,7 @@ const handleChange = (e) => {
 	  
 
 	
-      <h2>ServiceQ : New Service Center</h2>
+      <h2>ServiceQ : New Service Package</h2>
       {error && <div className="error">{error}</div>}
 	  
 	  <div className="login-container">

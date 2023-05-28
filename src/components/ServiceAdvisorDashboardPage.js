@@ -166,7 +166,7 @@ const getServiceAdvisorName = (serviceAdvisorId) => {
       
 	  
 	  
-	  <h3>My Bookings</h3>
+	  <h3>Assigned Bookings</h3>
       {Array.isArray(bookings) ? (
         bookings.map((booking) => (
 		
