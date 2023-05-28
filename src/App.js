@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import RegisterPage from './components/RegisterPage';
+import AdminRegisterPage from './components/AdminRegisterPage';
+import ServiceAdvisorRegisterPage from './components/ServiceAdvisorRegisterPage';
 import LoginPage from './components/LoginPage';
 import AdminLoginPage from './components/AdminLoginPage';
 import ServiceAdvisorLoginPage from './components/ServiceAdvisorLoginPage';
@@ -23,6 +25,8 @@ function App() {
       <Switch>
 
 		<Route path="/register" component={RegisterPage} />
+		<Route path="/admin/register" component={AdminRegisterPage} />
+		<Route path="/service-advisor/register" component={ServiceAdvisorRegisterPage} />
         <Route path="/admin/login" component={AdminLoginPage} />
         <Route path="/admin/reset-password" component={AdminResetPasswordPage} />
         <Route path="/admin/dashboard" component={AdminDashboardPage} />

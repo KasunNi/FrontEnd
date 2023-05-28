@@ -22,6 +22,15 @@ const ServiceAdvisorDashboardPage = () => {
   useEffect(() => {
     const fetchServiceAdvisorId = async () => {
       try {
+		  
+		  // Check if the user is authenticated
+        const token = localStorage.getItem('token');
+        if (!token) {
+          // Token is not available, redirect to login page
+          window.location.href = '/customer/login';
+          return;
+        }
+		  
         const response = await axios.post(`http://localhost:3001/api/service-advisor/email`, serviceAdvisorEmail);
         setServiceAdvisorId(response.data.serviceAdvisorId);
       } catch (error) {
@@ -35,6 +44,16 @@ const ServiceAdvisorDashboardPage = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
+		  
+		  // Check if the user is authenticated
+        const token = localStorage.getItem('token');
+        if (!token) {
+          // Token is not available, redirect to login page
+          window.location.href = '/service-advisor/login';
+          return;
+        }
+		  
+		  
         //const response = await axios.get(`http://localhost:3001/api/service-advisor/bookings/${serviceAdvisorId}`);
 		// User is authenticated, fetch bookings
         const bookingsResponse = await axios.post('http://localhost:3001/api/service-advisor/getbookings', {serviceAdvisorId});
@@ -42,6 +61,8 @@ const ServiceAdvisorDashboardPage = () => {
         setBookings(bookingsResponse.data.bookings);
 		console.log(bookings)
 		console.log(bookings.bookings)
+		
+		
 		
 		
         //setBookings(response.data);
