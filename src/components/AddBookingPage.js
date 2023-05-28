@@ -181,7 +181,7 @@ const [serviceAdvisors, setServiceAdvisors] = useState([]);
           </select>
         </label><br/><br/>
 
-        {/* Add more input fields for other booking data */}
+        
         
         <button  className="login-button"   type="submit">Add Booking</button>
       </form>

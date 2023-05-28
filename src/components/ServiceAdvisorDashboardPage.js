@@ -151,15 +151,15 @@ const getServiceAdvisorName = (serviceAdvisorId) => {
 	   <div className="navigation-tiles">
         <div className="tile">
 		<img src={logo} alt="addbooking" className="logo" /><br/>
-          <a href="/customer/add-booking">Add Service Packages</a>
+          <a href="/service-advisor/add-service-package">Add Service Packages</a>
         </div>
         <div className="tile">
 		<img src={logo} alt="viewservicecenters" className="logo" /><br/>
-          <a href="/customer/view-service-centers">View Service Centers</a>
+          <a href="/service-advisor/service-centers">View Service Centers</a>
         </div>
         <div className="tile">
 			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
-          <a href="/customer/view-service-packages">View Service Packages</a>
+          <a href="/service-advisor/service-packages">View Service Packages</a>
         </div>
       </div>
 	  

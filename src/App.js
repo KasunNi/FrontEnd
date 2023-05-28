@@ -13,7 +13,12 @@ import AdminDashboardPage from './components/AdminDashboardPage';
 import CustomerDashboardPage from './components/CustomerDashboardPage';
 import ServiceAdvisorDashboardPage from './components/ServiceAdvisorDashboardPage';
 import AddBookingPage from './components/AddBookingPage';
-
+import AddServiceCenterPage from './components/AddServiceCenterPage';
+import ServiceCentersPage from './components/ServiceCentersPage';
+import ServiceCentersPageServiceAdvisor from './components/ServiceCentersPageServiceAdvisor';
+import ServiceCentersPageCustomer from './components/ServiceCentersPageCustomer';
+import AddServicePackagePage from './components/AddServicePackagePage';
+import ServicePackagesPage from './components/ServicePackagesPage';
 
 
 function App() {
@@ -25,11 +30,15 @@ function App() {
       <Switch>
 
 		<Route path="/register" component={RegisterPage} />
-		<Route path="/admin/register" component={AdminRegisterPage} />
-		<Route path="/service-advisor/register" component={ServiceAdvisorRegisterPage} />
+		<Route path="/admin/admin/register" component={AdminRegisterPage} />
+		<Route path="/admin/service-advisor/register" component={ServiceAdvisorRegisterPage} />
         <Route path="/admin/login" component={AdminLoginPage} />
         <Route path="/admin/reset-password" component={AdminResetPasswordPage} />
         <Route path="/admin/dashboard" component={AdminDashboardPage} />
+		<Route path="/admin/add-service-center" component={AddServiceCenterPage} />
+		<Route path="/admin/service-centers" component={ServiceCentersPage} />
+		<Route path="/customer/service-centers" component={ServiceCentersPageCustomer} />
+		<Route path="/service-advisor/service-centers" component={ServiceCentersPageServiceAdvisor} />
         <Route path="/customer/login" component={LoginPage} />
         <Route path="/customer/reset-password" component={ResetPasswordPage} />
         <Route path="/customer/dashboard" component={CustomerDashboardPage} />
@@ -37,6 +46,8 @@ function App() {
         <Route path="/service-advisor/login" component={ServiceAdvisorLoginPage} />
         <Route path="/service-advisor/reset-password" component={ServiceAdvisorResetPasswordPage} />
         <Route path="/service-advisor/dashboard" component={ServiceAdvisorDashboardPage} />
+		<Route path="/service-advisor/add-service-package" component={AddServicePackagePage} />
+		<Route path="/service-advisor/service-packages" component={ServicePackagesPage} />
       </Switch>
     </Router>
 	
