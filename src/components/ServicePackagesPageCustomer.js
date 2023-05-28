@@ -8,20 +8,20 @@ import addbooking from '../assets/addbooking.jpg';
 import viewservicecenters from '../assets/viewservicecenters.jpg';
 import viewservicepackages from '../assets/viewservicepackages.jpg';
 
-const ServiceCentersPageServiceAdvisor = () => {
-  const [serviceCenters, setServiceCenters] = useState([]);
+const ServicePackagesPageCustomer = () => {
+  const [servicePackages, setServicePackages] = useState([]);
   const [error, setError] = useState('');
   
       const [serviceAdvisors, setServiceAdvisors] = useState([]);
 
    useEffect(() => {
-    const fetchServiceCenters = async () => {
+    const fetchServicePackages = async () => {
       try {
         // Check if the user is authenticated
         const token = localStorage.getItem('token');
         if (!token) {
           // Token is not available, redirect to login page
-          window.location.href = '/admin/login';
+          window.location.href = '/customer/login';
           return;
         }
 		
@@ -32,18 +32,18 @@ const ServiceCentersPageServiceAdvisor = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
         // User is authenticated, fetch serviceCenters
-        const serviceCentersResponse = await axios.get('http://localhost:3001/api/admin/service-centers');
-		console.log(serviceCentersResponse)
-        setServiceCenters(serviceCentersResponse.data.servicecenters);
-		console.log(serviceCenters)
-		//console.log(serviceCenters.serviceCenters)
+        const servicePackagesResponse = await axios.get('http://localhost:3001/api/service-advisor/service-packages');
+		console.log(servicePackagesResponse)
+        setServicePackages(servicePackagesResponse.data.servicepackages);
+		console.log(servicePackages)
+		//console.log(servicePackages.servicePackages)
       } catch (error) {
         console.error(error);
         // Handle error
       }
     };
 
-    fetchServiceCenters();
+    fetchServicePackages();
 	//fetchServiceAdvisors();
   }, []);
   
@@ -59,19 +59,19 @@ const ServiceCentersPageServiceAdvisor = () => {
 	
 	localStorage.removeItem('email');
 	
-      window.location.href = '/service-advisor/login';
+      window.location.href = '/customer/login';
     } catch (error) {
       console.error(error);	
       // Handle error
     }
   };
   
-    const cancelServiceCenter = async (serviceCenterId) => {
-	   console.log(serviceCenterId);
+    const cancelServicePackage = async (servicePackageId) => {
+	   console.log(servicePackageId);
     try {
-      await axios.delete(`http://localhost:3001/api/admin/service-center/${serviceCenterId}`);
+      await axios.delete(`http://localhost:3001/api/service-advisor/service-package/${servicePackageId}`);
       // service Center canceled successfully, update the bookings list
-      setServiceCenters((prevServiceCenters) => prevServiceCenters.filter((serviceCenters) => serviceCenters._id !== serviceCenterId));
+      setServicePackages((prevServicePackages) => prevServicePackages.filter((servicePackages) => servicePackages._id !== servicePackageId));
     } catch (error) {
       console.error(error);
       // Handle error
@@ -98,7 +98,7 @@ const ServiceCentersPageServiceAdvisor = () => {
 	  
 
 	
-      <h2>ServiceQ : Service Centers</h2>
+      <h2>ServiceQ : Service Packages</h2>
       {error && <div className="error">{error}</div>}
 	  
 	  
@@ -108,24 +108,24 @@ const ServiceCentersPageServiceAdvisor = () => {
       
 	  
 	  
-	  <h3>All Service Centers</h3>
-      {Array.isArray(serviceCenters) ? (
-        serviceCenters.map((serviceCenters) => (
+	  <h3>All Service Packages</h3>
+      {Array.isArray(servicePackages) ? (
+        servicePackages.map((servicePackages) => (
 		
-          <div key={serviceCenters.id}>
-            <div className="booking-card" key={serviceCenters._id}>
+          <div key={servicePackages.id}>
+            <div className="booking-card" key={servicePackages._id}>
             <div>
-              <strong>Service Center ID:</strong> {serviceCenters._id}
+              <strong>Service Package ID:</strong> {servicePackages._id}
             </div>
             
             <div>
-              <strong>Name:</strong> {serviceCenters.name}
+              <strong>Name:</strong> {servicePackages.name}
             </div>
 			<div>
-              <strong>Location:</strong> {serviceCenters.location}
+              <strong>Description:</strong> {servicePackages.description}
             </div>
 			<div>
-              <strong>Contact Number:</strong> {serviceCenters.contactNumber}
+              <strong>Price:</strong> {servicePackages.price}
             </div>
             
            
@@ -135,40 +135,30 @@ const ServiceCentersPageServiceAdvisor = () => {
 		  
         ))
       ) : (
-        <p>No service centers found.</p>
+        <p>No service packages found.</p>
       )}
 	  
-	 	   
-	   <br/><br/>
-	 
-	  
-	  
-	  
-	   <div className="navigation-tiles">
-	   <div className="tile">
-			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
-          <a href="/service-advisor/dashboard">Dashboard</a>
-        </div>
-		<div className="tile">
-		<img src={logo} alt="addbooking" className="logo" /><br/>
-          <a href="/service-advisor/add-service-package">Add Service Packages</a>
+	  <div className="navigation-tiles">
+	  <div className="tile">
+		<img src={logo} alt="dashboard" className="logo" /><br/>
+          <a href="/customer/dashboard">Dashboard</a>
         </div>
         <div className="tile">
 		<img src={logo} alt="addbooking" className="logo" /><br/>
-          <a href="/service-advisor/service-packages">View Service Packages</a>
+          <a href="/customer/add-booking">Add Booking</a>
         </div>
-        
+        <div className="tile">
+		<img src={logo} alt="viewservicecenters" className="logo" /><br/>
+          <a href="/customer/service-centers">View Service Centers</a>
+        </div>
         
       </div>
 	  
+	  
 	  <br/><br/><br/><br/>
-	  
-	  
-	  
-	  
 	  
     </div>
   );
 };
 
-export default ServiceCentersPageServiceAdvisor;
+export default ServicePackagesPageCustomer;

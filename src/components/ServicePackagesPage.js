@@ -159,7 +159,7 @@ const ServicePackagesPage = () => {
         </div>
         <div className="tile">
 		<img src={logo} alt="viewservicecenters" className="logo" /><br/>
-          <a href="/admin/view-service-centers">View Service Centers</a>
+          <a href="/service-advisor/service-centers">View Service Centers</a>
         </div>
         
       </div>

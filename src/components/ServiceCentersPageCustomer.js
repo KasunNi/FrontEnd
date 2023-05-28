@@ -59,7 +59,7 @@ const ServiceCentersPageCustomer = () => {
 	
 	localStorage.removeItem('email');
 	
-      window.location.href = '/admin/login';
+      window.location.href = '/customer/login';
     } catch (error) {
       console.error(error);	
       // Handle error
@@ -129,12 +129,7 @@ const ServiceCentersPageCustomer = () => {
             </div>
             
            
-			<div className="status-buttons">
-             
-			  
-			   <button onClick={() => cancelServiceCenter(serviceCenters._id)}>Delete Service Center</button>
-			  
-            </div>
+			
           </div>
           </div>
 		  
@@ -144,8 +139,26 @@ const ServiceCentersPageCustomer = () => {
       )}
 	  
 	  <br/><br/>
-	  <br/>
 	  
+	  
+	  <div className="navigation-tiles">
+	  <div className="tile">
+		<img src={logo} alt="dashboard" className="logo" /><br/>
+          <a href="/customer/dashboard">Dashboard</a>
+        </div>
+        <div className="tile">
+		<img src={logo} alt="addbooking" className="logo" /><br/>
+          <a href="/customer/add-booking">Add Booking</a>
+        </div>
+        
+        <div className="tile">
+			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
+          <a href="/customer/service-packages">View Service Packages</a>
+        </div>
+      </div>
+	  
+	  
+	  <br/><br/><br/><br/>
 	  
 	  
 	  

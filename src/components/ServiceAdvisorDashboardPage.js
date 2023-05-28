@@ -121,7 +121,7 @@ const getServiceAdvisorName = (serviceAdvisorId) => {
 	
 	localStorage.removeItem('email');
 	
-      window.location.href = '/customer/login';
+      window.location.href = '/service-advisor/login';
     } catch (error) {
       console.error(error);	
       // Handle error

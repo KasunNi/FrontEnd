@@ -19,6 +19,9 @@ import ServiceCentersPageServiceAdvisor from './components/ServiceCentersPageSer
 import ServiceCentersPageCustomer from './components/ServiceCentersPageCustomer';
 import AddServicePackagePage from './components/AddServicePackagePage';
 import ServicePackagesPage from './components/ServicePackagesPage';
+import ServicePackagesPageAdmin from './components/ServicePackagesPageAdmin';
+import ServicePackagesPageCustomer from './components/ServicePackagesPageCustomer';
+
 
 
 function App() {
@@ -48,6 +51,9 @@ function App() {
         <Route path="/service-advisor/dashboard" component={ServiceAdvisorDashboardPage} />
 		<Route path="/service-advisor/add-service-package" component={AddServicePackagePage} />
 		<Route path="/service-advisor/service-packages" component={ServicePackagesPage} />
+		<Route path="/admin/service-packages" component={ServicePackagesPageAdmin} />
+		<Route path="/customer/service-packages" component={ServicePackagesPageCustomer} />
+		
       </Switch>
     </Router>
 	

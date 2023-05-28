@@ -144,9 +144,32 @@ const ServiceCentersPage = () => {
       )}
 	  
 	  <br/><br/>
-	  <br/>
+	   
+	  <div className="navigation-tiles">
+        <div className="tile">
+		<img src={logo} alt="addbooking" className="logo" /><br/>
+          <a href="/admin/dashboard">Dashboard</a>
+        </div>
+        <div className="tile">
+		<img src={logo} alt="addbooking" className="logo" /><br/>
+          <a href="/admin/add-service-center">Add Service Center</a>
+        </div>
+        <div className="tile">
+			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
+          <a href="/admin/service-packages">View Service Packages</a>
+        </div>
+		<div className="tile">
+		<img src={logo} alt="viewservicecenters" className="logo" /><br/>
+          <a href="/admin/service-advisor/register">Add Service Advisor</a>
+        </div>
+        <div className="tile">
+			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
+          <a href="/admin/admin/register">Add Admin</a>
+        </div>
+      </div>
 	  
 	  
+	  <br/><br/><br/><br/>
 	  
 	  
 	  

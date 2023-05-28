@@ -77,7 +77,7 @@ const handleChange = (e) => {
 	
 	localStorage.removeItem('email');
 	
-      window.location.href = '/customer/login';
+      window.location.href = '/admin/login';
     } catch (error) {
       console.error(error);
       // Handle error
@@ -124,15 +124,15 @@ const handleChange = (e) => {
 	  <div className="navigation-tiles">
         <div className="tile">
 		<img src={logo} alt="addbooking" className="logo" /><br/>
-          <a href="/admin/add-service-center">Add Service Center</a>
+          <a href="/admin/dashboard">Dashboard</a>
         </div>
         <div className="tile">
 		<img src={logo} alt="viewservicecenters" className="logo" /><br/>
-          <a href="/customer/view-service-centers">View Service Centers</a>
+          <a href="/admin/service-centers">View Service Centers</a>
         </div>
         <div className="tile">
 			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
-          <a href="/customer/view-service-packages">View Service Packages</a>
+          <a href="/admin/service-packages">View Service Packages</a>
         </div>
 		<div className="tile">
 		<img src={logo} alt="viewservicecenters" className="logo" /><br/>

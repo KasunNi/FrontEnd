@@ -197,11 +197,11 @@ const [serviceAdvisors, setServiceAdvisors] = useState([]);
         </div>
         <div className="tile">
 		<img src={logo} alt="viewservicecenters" className="logo" /><br/>
-          <a href="/customer/view-service-centers">View Service Centers</a>
+          <a href="/customer/service-centers">View Service Centers</a>
         </div>
         <div className="tile">
 			<img src={logo} alt="viewservicepackages" className="logo" /><br/>
-          <a href="/customer/view-service-packages">View Service Packages</a>
+          <a href="/customer/service-packages">View Service Packages</a>
         </div>
       </div>
 	  
